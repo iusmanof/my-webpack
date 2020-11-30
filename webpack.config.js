@@ -16,7 +16,6 @@ module.exports = {
     mode: 'development',
     entry: {
         main: './index.js',
-        analytics: './analytics.js'
     },
     output: {
         filename: '[name].[contenthash].js',
@@ -37,7 +36,7 @@ module.exports = {
         minimizer: [new TerserPlugin()],
     },
     devServer: {
-        port: 4200,
+        port: 9000,
         open: true
     },
     plugins: [
@@ -50,13 +49,10 @@ module.exports = {
         new CleanWebpackPlugin(),
         new CopyPlugin({
             patterns: [{
-                    from: path.resolve(__dirname, 'src/favicon-16x16.png'),
-                    to: path.resolve(__dirname, 'dist/images/favicon')
+                    from: path.resolve(__dirname, 'src/assets'),
+                    to: path.resolve(__dirname, 'dist/assets')
                 },
-                {
-                    from: path.resolve(__dirname, 'src/favicon.ico'),
-                    to: path.resolve(__dirname, 'dist/images/favicon')
-                },
+
             ],
         }),
         new MiniCssExtractPlugin({
@@ -105,16 +101,16 @@ module.exports = {
                     },
                 ],
             },
-            {
-                test: /\.m?js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
-            },
+            // {
+            //     test: /\.m?js$/,
+            //     exclude: /node_modules/,
+            //     use: {
+            //         loader: "babel-loader",
+            //         options: {
+            //             presets: ['@babel/preset-env']
+            //         }
+            //     }
+            // },
         ]
     }
 }
