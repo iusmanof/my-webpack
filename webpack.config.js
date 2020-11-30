@@ -22,7 +22,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
-        extensions: ['.js', '.json', '.png'], // Post => Post.js   
+        extensions: ['.js', '.json', '.png'], // Post => Post.js  понимает файлы без расширения 
         alias: {
             '@models': path.resolve(__dirname, 'src/models'),
             '@': path.resolve(__dirname, 'src')
@@ -62,6 +62,27 @@ module.exports = {
     ],
     module: {
         rules: [{
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '/public/path/to/',
+                        },
+                    },
+                    {
+                        loader: 'css-loader', 
+                    },
+                    {
+                        loader: 'postcss-loader', 
+                    },
+                    {
+                        loader: 'sass-loader', 
+                    },
+                    ]
+            },
+            {
                 test: /\.css$/,
                 use: [{
                         loader: MiniCssExtractPlugin.loader,

@@ -1,0 +1,11 @@
+@import "roboto.css";
+@import "~normalize.css";
+@import "./sc.scss";
+
+.container{
+    padding: 3rem;
+    margin: 0 auto;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+}

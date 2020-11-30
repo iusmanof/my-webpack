@@ -1,6 +1,6 @@
 //import Post from '@models/Post'
-import '@/styles/style.css'
-//import '@/styles/st.less'
+import '@/styles/style.scss'
+
 //import WelcomePng from './assets/welcome.png'
 //import * as $ from 'jquery'
 //import './babel'
